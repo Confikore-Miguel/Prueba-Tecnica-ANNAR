@@ -1,0 +1,98 @@
+<div class="fondo d-flex justify-content-center ">
+    <div class="caja-formulario">
+        <h1 class="text-center titulo-registro p-2 mt-3">Registrar Usuario</h1>
+        <hr>
+        <form (ngSubmit)="registrarUsuario()" 
+              [formGroup]="miFormulario"
+              class="row g-3 p-4">
+
+            <div class="col-6">
+              <label >Nombres</label>
+              <input type="text" 
+                     class="form-control" 
+                     placeholder="Miguel Angel"
+                     formControlName="Nombres">
+
+              <span *ngIf="tieneError('Nombres')"
+                     msg-error
+                     colores="red"
+                     mensaje="*Los nombre son obligatorios">
+              </span>
+            </div>
+
+            <div class="col-6">
+              <label >Apellidos</label>
+              <input type="text" 
+                     class="form-control"
+                     placeholder="Vasquez Osorio"
+                     formControlName="Apellidos">
+              <span *ngIf="tieneError('Apellidos')"
+                     msg-error
+                     colores="red"
+                     mensaje="*Los apellidos son obligatorios">
+              </span>
+            </div>
+
+            <div class="col-6">
+              <label >Correo</label>
+              <input type="text" 
+                     class="form-control"
+                     placeholder="ejemplo@ejemplo.com"
+                     formControlName="Correo">
+              <span *ngIf="tieneError('Correo')"
+                     msg-error
+                     colores="red"
+                     mensaje="*El correo es obligatorio y en minisculas">
+              </span>
+            </div>
+
+            <div class="col-6">
+              <label >Telefono</label>
+              <input type="text" 
+                     class="form-control"  
+                     placeholder="333 333 3333"
+                     formControlName="Telefono">
+              <span *ngIf="tieneError('Telefono')"
+                     msg-error
+                     colores="red"
+                     mensaje="*El telefono es obligatorio y minimo 7 numeros">
+              </span>
+            </div>
+
+            <div class="col-6">
+              <label >Documento</label>
+              <input type="text" 
+                     class="form-control"
+                     placeholder="112455555"
+                     formControlName="Documento">
+              <span *ngIf="tieneError('Documento')"
+                     msg-error
+                     colores="red"
+                     mensaje="*El documento es obligatorio">
+               </span>
+            </div>
+
+            <div class="col-6">
+              <label >Direccion</label>
+              <input type="text" 
+                     class="form-control"
+                     placeholder="crr 9 "
+                     formControlName="Direccion">
+              <span *ngIf="tieneError('Direccion')"
+                     msg-error
+                     colores="red"
+                     mensaje="*La direccion es obligatorio">
+              </span>
+            </div>
+
+            <div class="col-12 d-flex justify-content-center">
+                <button type="submit"
+                        class="btn btn-primary p-3 mt-3" 
+                        style="width: 150px;"
+                        [disabled]="miFormulario.invalid">
+                        Registrar
+                </button>
+            </div>
+          </form>
+    </div>
+</div>
